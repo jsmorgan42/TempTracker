@@ -10,6 +10,15 @@ import UIKit
 
 class ViewController: UIViewController {
 
+    @IBOutlet var changeLocationButton: UIButton!
+    
+    @IBOutlet var locationLabel: UILabel!
+    @IBOutlet var timeLabel: UILabel!
+    @IBOutlet var descriptionLabel: UILabel!
+    @IBOutlet var temperatureLabel: UILabel!
+    
+    @IBOutlet var weatherSymbol: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
