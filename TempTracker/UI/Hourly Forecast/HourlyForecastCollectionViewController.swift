@@ -9,9 +9,11 @@
 import Foundation
 import UIKit
 
-class HourlyForecastCollectionViewController: UICollectionViewController {
+final class HourlyForecastCollectionViewController: UICollectionViewController {
     
-    var dataSource: UICollectionViewDiffableDataSource<Int, Int>! = nil
+    private var dataSource: UICollectionViewDiffableDataSource<Int, Int>! = nil
+    
+    private let itemsPerPage = 7
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,13 +26,13 @@ class HourlyForecastCollectionViewController: UICollectionViewController {
         configureDataSource()
     }
     
-    func configureHierarchy() {
+    private func configureHierarchy() {
         collectionView = UICollectionView(frame: view.bounds, collectionViewLayout: createLayout())
-        collectionView.backgroundColor = .systemBackground
-        collectionView.register(UINib(nibName: HourlyForecastCell.identifier, bundle: nil), forCellWithReuseIdentifier:  HourlyForecastCell.identifier)
+        collectionView.backgroundColor = .offWhite
+        collectionView.register(UINib(nibName: HourlyForecastCell.nibName, bundle: nil), forCellWithReuseIdentifier:  HourlyForecastCell.identifier)
     }
     
-    func configureDataSource() {
+    private func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Int, Int>(collectionView: collectionView, cellProvider: { (collectionView: UICollectionView, indexPath: IndexPath, indentifier: Int) -> UICollectionViewCell? in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HourlyForecastCell.identifier, for: indexPath)
                 as? HourlyForecastCell else { fatalError("Failed to create new hourly forecast cell") }
@@ -41,7 +43,7 @@ class HourlyForecastCollectionViewController: UICollectionViewController {
         updateSnapshot()
     }
     
-    func updateSnapshot() {
+    private func updateSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Int, Int>()
         snapshot.appendSections([0])
         snapshot.appendItems(Array(0..<14))
@@ -52,15 +54,15 @@ class HourlyForecastCollectionViewController: UICollectionViewController {
         let layout = UICollectionViewCompositionalLayout {
             (sectionIndex: Int, layoutEnvironment: NSCollectionLayoutEnvironment) -> NSCollectionLayoutSection? in
             
-            let item = NSCollectionLayoutItem(
-                layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(0.2),
-                                                   heightDimension: .fractionalHeight(1.0)))
+            let itemFractionalWidth = (1.0 / CGFloat(self.itemsPerPage)).roundedDecimals()
+            let leadingItem = self.layoutItem(fractionalWidth: itemFractionalWidth, fractionalHeight: 1.0)
+            leadingItem.edgeSpacing = .init(leading: .fixed(8), top: nil, trailing: nil, bottom: nil)
+
+            let item = self.layoutItem(fractionalWidth: itemFractionalWidth, fractionalHeight: 1.0)
             
-            
-            let containerGroup = NSCollectionLayoutGroup.horizontal(
-                layoutSize: NSCollectionLayoutSize(widthDimension: .fractionalWidth(1.0),
-                                                   heightDimension: .fractionalHeight(1.0)),
-                subitem: item, count: 7)
+            var items = [leadingItem, item]
+            items.append(contentsOf: repeatElement(item, count: 6))
+            let containerGroup = self.layoutGroup(fractionalWidth: 1.0, fractionalHeight: 1.0, items: items)
             let section = NSCollectionLayoutSection(group: containerGroup)
             section.orthogonalScrollingBehavior = .continuous
             
@@ -68,5 +70,19 @@ class HourlyForecastCollectionViewController: UICollectionViewController {
             
         }
         return layout
+    }
+    
+    private func layoutItem(fractionalWidth: CGFloat, fractionalHeight: CGFloat) -> NSCollectionLayoutItem {
+        return NSCollectionLayoutItem(layoutSize: NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(fractionalWidth),
+            heightDimension: .fractionalHeight(fractionalHeight)))
+    }
+    
+    private func layoutGroup(fractionalWidth: CGFloat, fractionalHeight: CGFloat, items: [NSCollectionLayoutItem]) -> NSCollectionLayoutGroup {
+        return NSCollectionLayoutGroup.horizontal(
+        layoutSize: NSCollectionLayoutSize(
+            widthDimension: .fractionalWidth(fractionalHeight),
+            heightDimension: .fractionalHeight(fractionalWidth)),
+        subitems: items )
     }
 }

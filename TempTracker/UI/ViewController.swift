@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-class ViewController: UIViewController {
+final class ViewController: UIViewController {
 
     @IBOutlet var changeLocationButton: UIButton!
     
@@ -22,8 +22,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
-    } 
+    }
     
     func createGradientLayer() {
         let gradientLayer = CAGradientLayer()

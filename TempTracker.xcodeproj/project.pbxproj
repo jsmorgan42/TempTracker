@@ -17,6 +17,11 @@
 		A9F1B933248F1F1500C19516 /* HourlyForecastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9F1B932248F1F1500C19516 /* HourlyForecastCell.xib */; };
 		A9F1B935248F219400C19516 /* HourlyForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1B934248F219400C19516 /* HourlyForecastCell.swift */; };
 		A9F1B93A2490602600C19516 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1B9392490602600C19516 /* NavigationButton.swift */; };
+		A9F1B93F2490639C00C19516 /* UIColor+Helpers.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1B93E2490639C00C19516 /* UIColor+Helpers.swift */; };
+		A9F1B9412490651600C19516 /* DailyForecastTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1B9402490651600C19516 /* DailyForecastTableViewController.swift */; };
+		A9F1B9432490652000C19516 /* DailyForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1B9422490652000C19516 /* DailyForecastCell.swift */; };
+		A9F1B9452490652A00C19516 /* DailyForecastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9F1B9442490652A00C19516 /* DailyForecastCell.xib */; };
+		A9F1B9472490766000C19516 /* CGFloat+Rounded.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1B9462490766000C19516 /* CGFloat+Rounded.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +37,11 @@
 		A9F1B932248F1F1500C19516 /* HourlyForecastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyForecastCell.xib; sourceTree = "<group>"; };
 		A9F1B934248F219400C19516 /* HourlyForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastCell.swift; sourceTree = "<group>"; };
 		A9F1B9392490602600C19516 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
+		A9F1B93E2490639C00C19516 /* UIColor+Helpers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Helpers.swift"; sourceTree = "<group>"; };
+		A9F1B9402490651600C19516 /* DailyForecastTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastTableViewController.swift; sourceTree = "<group>"; };
+		A9F1B9422490652000C19516 /* DailyForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DailyForecastCell.swift; sourceTree = "<group>"; };
+		A9F1B9442490652A00C19516 /* DailyForecastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DailyForecastCell.xib; sourceTree = "<group>"; };
+		A9F1B9462490766000C19516 /* CGFloat+Rounded.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CGFloat+Rounded.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -93,6 +103,9 @@
 		A95AE597248F1D7B00BA5566 /* Daily Forecast */ = {
 			isa = PBXGroup;
 			children = (
+				A9F1B9402490651600C19516 /* DailyForecastTableViewController.swift */,
+				A9F1B9442490652A00C19516 /* DailyForecastCell.xib */,
+				A9F1B9422490652000C19516 /* DailyForecastCell.swift */,
 			);
 			path = "Daily Forecast";
 			sourceTree = "<group>";
@@ -105,6 +118,7 @@
 				A94B6153248D9E9900CA085C /* Main.storyboard */,
 				A95AE596248F1D7600BA5566 /* Hourly Forecast */,
 				A95AE597248F1D7B00BA5566 /* Daily Forecast */,
+				A9F1B93C2490637C00C19516 /* Utilities */,
 				A95AE599248F1DAC00BA5566 /* Supporting Files */,
 			);
 			path = UI;
@@ -125,6 +139,23 @@
 				A9F1B9392490602600C19516 /* NavigationButton.swift */,
 			);
 			path = Components;
+			sourceTree = "<group>";
+		};
+		A9F1B93C2490637C00C19516 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				A9F1B93D2490638B00C19516 /* Extensions */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
+		A9F1B93D2490638B00C19516 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A9F1B93E2490639C00C19516 /* UIColor+Helpers.swift */,
+				A9F1B9462490766000C19516 /* CGFloat+Rounded.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -188,6 +219,7 @@
 				A94B615A248D9E9C00CA085C /* LaunchScreen.storyboard in Resources */,
 				A94B6157248D9E9C00CA085C /* Assets.xcassets in Resources */,
 				A9F1B933248F1F1500C19516 /* HourlyForecastCell.xib in Resources */,
+				A9F1B9452490652A00C19516 /* DailyForecastCell.xib in Resources */,
 				A94B6155248D9E9900CA085C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -201,10 +233,14 @@
 			files = (
 				A95AE595248F1D6500BA5566 /* HourlyForecastCollectionViewController.swift in Sources */,
 				A94B6152248D9E9900CA085C /* ViewController.swift in Sources */,
+				A9F1B9412490651600C19516 /* DailyForecastTableViewController.swift in Sources */,
+				A9F1B93F2490639C00C19516 /* UIColor+Helpers.swift in Sources */,
 				A94B614E248D9E9900CA085C /* AppDelegate.swift in Sources */,
 				A9F1B935248F219400C19516 /* HourlyForecastCell.swift in Sources */,
 				A94B6150248D9E9900CA085C /* SceneDelegate.swift in Sources */,
+				A9F1B9472490766000C19516 /* CGFloat+Rounded.swift in Sources */,
 				A9F1B93A2490602600C19516 /* NavigationButton.swift in Sources */,
+				A9F1B9432490652000C19516 /* DailyForecastCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -17,9 +17,9 @@ class NavigationButton: UIButton {
     }
     
     private func setup() {
-        layer.cornerRadius = 12
-        backgroundColor = .link
-        setTitleColor(UIColor(named: "OffWhite"), for: .normal)
+//        layer.cornerRadius = 12
+//        backgroundColor = .link
+//        setTitleColor(.offWhite, for: .normal)
     }
     
 }

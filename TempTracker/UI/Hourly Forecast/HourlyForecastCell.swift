@@ -11,7 +11,8 @@ import UIKit
 
 class HourlyForecastCell: UICollectionViewCell {
     
-    static let identifier = "HourlyForecastCell"
+    static let identifier = "hourly-forecast-cell"
+    static let nibName = "HourlyForecastCell"
     
 //    let label = UILabel()
     
