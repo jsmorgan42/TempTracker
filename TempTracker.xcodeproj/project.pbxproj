@@ -13,6 +13,10 @@
 		A94B6155248D9E9900CA085C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94B6153248D9E9900CA085C /* Main.storyboard */; };
 		A94B6157248D9E9C00CA085C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A94B6156248D9E9C00CA085C /* Assets.xcassets */; };
 		A94B615A248D9E9C00CA085C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94B6158248D9E9C00CA085C /* LaunchScreen.storyboard */; };
+		A95AE595248F1D6500BA5566 /* HourlyForecastCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95AE594248F1D6500BA5566 /* HourlyForecastCollectionViewController.swift */; };
+		A9F1B933248F1F1500C19516 /* HourlyForecastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9F1B932248F1F1500C19516 /* HourlyForecastCell.xib */; };
+		A9F1B935248F219400C19516 /* HourlyForecastCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1B934248F219400C19516 /* HourlyForecastCell.swift */; };
+		A9F1B93A2490602600C19516 /* NavigationButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = A9F1B9392490602600C19516 /* NavigationButton.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		A94B6156248D9E9C00CA085C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A94B6159248D9E9C00CA085C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A94B615B248D9E9C00CA085C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		A95AE594248F1D6500BA5566 /* HourlyForecastCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastCollectionViewController.swift; sourceTree = "<group>"; };
+		A9F1B932248F1F1500C19516 /* HourlyForecastCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HourlyForecastCell.xib; sourceTree = "<group>"; };
+		A9F1B934248F219400C19516 /* HourlyForecastCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastCell.swift; sourceTree = "<group>"; };
+		A9F1B9392490602600C19516 /* NavigationButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NavigationButton.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,14 +64,11 @@
 		A94B614C248D9E9900CA085C /* TempTracker */ = {
 			isa = PBXGroup;
 			children = (
-				A95AE593248F08B200BA5566 /* Networking */,
-				A94B614D248D9E9900CA085C /* AppDelegate.swift */,
-				A94B614F248D9E9900CA085C /* SceneDelegate.swift */,
-				A94B6151248D9E9900CA085C /* ViewController.swift */,
-				A94B6153248D9E9900CA085C /* Main.storyboard */,
-				A94B6156248D9E9C00CA085C /* Assets.xcassets */,
-				A94B6158248D9E9C00CA085C /* LaunchScreen.storyboard */,
 				A94B615B248D9E9C00CA085C /* Info.plist */,
+				A94B614F248D9E9900CA085C /* SceneDelegate.swift */,
+				A94B614D248D9E9900CA085C /* AppDelegate.swift */,
+				A95AE593248F08B200BA5566 /* Networking */,
+				A95AE598248F1D8B00BA5566 /* UI */,
 			);
 			path = TempTracker;
 			sourceTree = "<group>";
@@ -73,6 +78,53 @@
 			children = (
 			);
 			path = Networking;
+			sourceTree = "<group>";
+		};
+		A95AE596248F1D7600BA5566 /* Hourly Forecast */ = {
+			isa = PBXGroup;
+			children = (
+				A95AE594248F1D6500BA5566 /* HourlyForecastCollectionViewController.swift */,
+				A9F1B932248F1F1500C19516 /* HourlyForecastCell.xib */,
+				A9F1B934248F219400C19516 /* HourlyForecastCell.swift */,
+			);
+			path = "Hourly Forecast";
+			sourceTree = "<group>";
+		};
+		A95AE597248F1D7B00BA5566 /* Daily Forecast */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "Daily Forecast";
+			sourceTree = "<group>";
+		};
+		A95AE598248F1D8B00BA5566 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+				A9F1B9382490601400C19516 /* Components */,
+				A94B6151248D9E9900CA085C /* ViewController.swift */,
+				A94B6153248D9E9900CA085C /* Main.storyboard */,
+				A95AE596248F1D7600BA5566 /* Hourly Forecast */,
+				A95AE597248F1D7B00BA5566 /* Daily Forecast */,
+				A95AE599248F1DAC00BA5566 /* Supporting Files */,
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		A95AE599248F1DAC00BA5566 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				A94B6158248D9E9C00CA085C /* LaunchScreen.storyboard */,
+				A94B6156248D9E9C00CA085C /* Assets.xcassets */,
+			);
+			path = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		A9F1B9382490601400C19516 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A9F1B9392490602600C19516 /* NavigationButton.swift */,
+			);
+			path = Components;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -135,6 +187,7 @@
 			files = (
 				A94B615A248D9E9C00CA085C /* LaunchScreen.storyboard in Resources */,
 				A94B6157248D9E9C00CA085C /* Assets.xcassets in Resources */,
+				A9F1B933248F1F1500C19516 /* HourlyForecastCell.xib in Resources */,
 				A94B6155248D9E9900CA085C /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -146,9 +199,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A95AE595248F1D6500BA5566 /* HourlyForecastCollectionViewController.swift in Sources */,
 				A94B6152248D9E9900CA085C /* ViewController.swift in Sources */,
 				A94B614E248D9E9900CA085C /* AppDelegate.swift in Sources */,
+				A9F1B935248F219400C19516 /* HourlyForecastCell.swift in Sources */,
 				A94B6150248D9E9900CA085C /* SceneDelegate.swift in Sources */,
+				A9F1B93A2490602600C19516 /* NavigationButton.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
