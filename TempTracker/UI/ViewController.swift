@@ -22,6 +22,9 @@ final class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        WeatherRepository.shared.getWeatherData(latitude: 33.441792, longitude: -94.037689, excluding: [.minutely]) { (result) in
+            // handle result
+        }
     }
     
     func createGradientLayer() {
