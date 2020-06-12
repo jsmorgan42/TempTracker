@@ -30,7 +30,7 @@ final class ViewController: UIViewController {
     }
     
     private func getWeatherData() {
-        WeatherRepository.shared.getWeatherData(latitude: 35.9940, longitude: -78.8986, excluding: [.daily]) { (result) in
+        WeatherRepository.shared.getWeatherData(latitude: ViewModel.location.latitude, longitude: ViewModel.location.longitude, excluding: [.daily, .minutely]) { (result) in
             switch result {
             case .success(let response):
                 ViewModel.current = response.current

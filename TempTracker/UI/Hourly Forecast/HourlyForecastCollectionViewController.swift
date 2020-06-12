@@ -19,6 +19,13 @@ final class HourlyForecastCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        getWeatherData()
+        _ = semaphore.wait(timeout: DispatchTime.distantFuture)
+        configureHierarchy()
+        configureDataSource()
+    }
+    
+    private func getWeatherData() {
         WeatherRepository.shared.getWeatherData(latitude: ViewModel.location.latitude, longitude: ViewModel.location.longitude, excluding: [.daily, .minutely]) { (result) in
             switch result {
             case .success(let response):
@@ -31,9 +38,6 @@ final class HourlyForecastCollectionViewController: UICollectionViewController {
                 print("Failed to retrieve weather data: \(error)")
             }
         }
-        _ = semaphore.wait(timeout: DispatchTime.distantFuture)
-        configureHierarchy()
-        configureDataSource()
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -78,7 +82,7 @@ final class HourlyForecastCollectionViewController: UICollectionViewController {
             
             let itemFractionalWidth = (1.0 / CGFloat(self.itemsPerPage)).roundedDecimals()
             let leadingItem = self.layoutItem(fractionalWidth: itemFractionalWidth, fractionalHeight: 1.0)
-            leadingItem.edgeSpacing = .init(leading: .fixed(8), top: nil, trailing: nil, bottom: nil)
+//            leadingItem.edgeSpacing = .init(leading: .fixed(8), top: nil, trailing: nil, bottom: nil)
 
             let item = self.layoutItem(fractionalWidth: itemFractionalWidth, fractionalHeight: 1.0)
             
