@@ -17,6 +17,8 @@
 		A908D2822491DE4F00A466ED /* WeatherRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908D2812491DE4F00A466ED /* WeatherRepository.swift */; };
 		A908D2852491DFF900A466ED /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908D2842491DFF900A466ED /* RequestBuilder.swift */; };
 		A908D2872491E59300A466ED /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908D2862491E59300A466ED /* HTTPClient.swift */; };
+		A908D28B24931F7B00A466ED /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908D28A24931F7B00A466ED /* ViewModel.swift */; };
+		A908D28D249327B500A466ED /* NSDate+DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908D28C249327B500A466ED /* NSDate+DateFormat.swift */; };
 		A94B614E248D9E9900CA085C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94B614D248D9E9900CA085C /* AppDelegate.swift */; };
 		A94B6150248D9E9900CA085C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94B614F248D9E9900CA085C /* SceneDelegate.swift */; };
 		A94B6152248D9E9900CA085C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94B6151248D9E9900CA085C /* ViewController.swift */; };
@@ -45,6 +47,8 @@
 		A908D2812491DE4F00A466ED /* WeatherRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WeatherRepository.swift; sourceTree = "<group>"; };
 		A908D2842491DFF900A466ED /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		A908D2862491E59300A466ED /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
+		A908D28A24931F7B00A466ED /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
+		A908D28C249327B500A466ED /* NSDate+DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDate+DateFormat.swift"; sourceTree = "<group>"; };
 		A94B614A248D9E9900CA085C /* TempTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TempTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A94B614D248D9E9900CA085C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A94B614F248D9E9900CA085C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -96,6 +100,14 @@
 			path = Repositories;
 			sourceTree = "<group>";
 		};
+		A908D28924931F6000A466ED /* Data */ = {
+			isa = PBXGroup;
+			children = (
+				A908D28A24931F7B00A466ED /* ViewModel.swift */,
+			);
+			path = Data;
+			sourceTree = "<group>";
+		};
 		A94B6141248D9E9900CA085C = {
 			isa = PBXGroup;
 			children = (
@@ -119,6 +131,7 @@
 				A94B614F248D9E9900CA085C /* SceneDelegate.swift */,
 				A94B614D248D9E9900CA085C /* AppDelegate.swift */,
 				A95AE593248F08B200BA5566 /* Networking */,
+				A908D28924931F6000A466ED /* Data */,
 				A95AE598248F1D8B00BA5566 /* UI */,
 			);
 			path = TempTracker;
@@ -200,6 +213,7 @@
 			children = (
 				A9F1B93E2490639C00C19516 /* UIColor+Helpers.swift */,
 				A9F1B9462490766000C19516 /* CGFloat+Rounded.swift */,
+				A908D28C249327B500A466ED /* NSDate+DateFormat.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -290,7 +304,9 @@
 				A94B614E248D9E9900CA085C /* AppDelegate.swift in Sources */,
 				A908D2782491B90000A466ED /* APIResponse.swift in Sources */,
 				A9F1B935248F219400C19516 /* HourlyForecastCell.swift in Sources */,
+				A908D28B24931F7B00A466ED /* ViewModel.swift in Sources */,
 				A94B6150248D9E9900CA085C /* SceneDelegate.swift in Sources */,
+				A908D28D249327B500A466ED /* NSDate+DateFormat.swift in Sources */,
 				A908D27C2491BC6100A466ED /* Daily.swift in Sources */,
 				A9F1B9472490766000C19516 /* CGFloat+Rounded.swift in Sources */,
 				A908D2802491D33800A466ED /* Request.swift in Sources */,

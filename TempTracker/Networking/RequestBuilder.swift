@@ -47,7 +47,6 @@ struct RequestBuilder {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue.uppercased()
         request.httpBody = body
-        print(request.url)
         return request
     }
     

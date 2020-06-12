@@ -10,5 +10,5 @@ import Foundation
 
 struct Minutely: Codable {
     let dt: Int
-    let precipitation: Bool
+    let precipitation: Int?
 }

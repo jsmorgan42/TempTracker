@@ -15,8 +15,23 @@ final class HourlyForecastCollectionViewController: UICollectionViewController {
     
     private let itemsPerPage = 7
     
+    let semaphore = DispatchSemaphore(value: 0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        WeatherRepository.shared.getWeatherData(latitude: ViewModel.location.latitude, longitude: ViewModel.location.longitude, excluding: [.daily]) { (result) in
+            switch result {
+            case .success(let response):
+                ViewModel.current = response.current
+                ViewModel.minutely = response.minutely
+                ViewModel.hourly = response.hourly
+                ViewModel.daily = response.daily
+                self.semaphore.signal()
+            case .failure(let error):
+                print("Failed to retrieve weather data: \(error)")
+            }
+        }
+        _ = semaphore.wait(timeout: DispatchTime.distantFuture)
         configureHierarchy()
         configureDataSource()
     }
@@ -36,7 +51,11 @@ final class HourlyForecastCollectionViewController: UICollectionViewController {
         dataSource = UICollectionViewDiffableDataSource<Int, Int>(collectionView: collectionView, cellProvider: { (collectionView: UICollectionView, indexPath: IndexPath, indentifier: Int) -> UICollectionViewCell? in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HourlyForecastCell.identifier, for: indexPath)
                 as? HourlyForecastCell else { fatalError("Failed to create new hourly forecast cell") }
-            cell.timeLabel.text = "8PM"
+            guard let hourly = ViewModel.hourly?[indexPath.row + 1] else { return cell }
+            let temp = Int(hourly.temp.rounded())
+            let date = NSDate(timeIntervalSince1970: TimeInterval(hourly.dt)).formatDate()
+            cell.temperatureLabel.text = "\(temp)°"
+            cell.timeLabel.text = "\(date)"
             return cell
         })
         

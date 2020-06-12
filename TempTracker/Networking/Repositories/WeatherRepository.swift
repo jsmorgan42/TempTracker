@@ -19,13 +19,15 @@ class WeatherRepository {
     static var shared = WeatherRepository()
     
     private let appID = "a454de18cc7b2a1222eda7dbd7f4d1af"
+    private let unitMeasurement = "imperial"
     
-    func getWeatherData(latitude: Double, longitude: Double, excluding: [WeatherDataType], completion: @escaping (Result<Bool, Error>) -> Void) {
+    func getWeatherData(latitude: Double, longitude: Double, excluding: [WeatherDataType], completion: @escaping (Result<APIResponse, Error>) -> Void) {
         let excludingString = (excluding.map { $0.rawValue }).joined(separator: ",")
         let queryItems = [
             URLQueryItem(name: "lat", value: String(latitude)),
             URLQueryItem(name: "lon", value: String(longitude)),
             URLQueryItem(name: "exclude", value: excludingString),
+            URLQueryItem(name: "units", value: unitMeasurement),
             URLQueryItem(name: "appid", value: appID)
         ]
         
@@ -35,11 +37,13 @@ class WeatherRepository {
                 let decoder = JSONDecoder()
                 do {
                     let response = try decoder.decode(APIResponse.self, from: data)
+                    print("Successfully fetched weather data")
+                    completion(.success(response))
                 } catch (let error) {
-                    print(error)
+                    print("Failed to decode to APIResponse: \(error)")
                 }
                 
-                completion(.success(true))
+                
             case .failure(let error):
                 completion(.failure(error))
             }

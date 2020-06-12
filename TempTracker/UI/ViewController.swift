@@ -20,11 +20,26 @@ final class ViewController: UIViewController {
     
     @IBOutlet var weatherSymbol: UIImageView!
     
+//    static let semaphore = DispatchSemaphore(value: 0)
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        WeatherRepository.shared.getWeatherData(latitude: 33.441792, longitude: -94.037689, excluding: [.minutely]) { (result) in
-            // handle result
-        }
+        getWeatherData()
+    }
+    
+    private func getWeatherData() {
+//        WeatherRepository.shared.getWeatherData(latitude: 35.9940, longitude: -78.8986, excluding: [.daily]) { (result) in
+//            switch result {
+//            case .success(let response):
+//                ViewModel.current = response.current
+//                ViewModel.minutely = response.minutely
+//                ViewModel.hourly = response.hourly
+//                ViewModel.daily = response.daily
+//                ViewController.semaphore.signal()
+//            case .failure(let error):
+//                print("Failed to retrieve weather data: \(error)")
+//            }
+//        }
     }
     
     func createGradientLayer() {
