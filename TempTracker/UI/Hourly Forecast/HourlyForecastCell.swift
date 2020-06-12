@@ -21,21 +21,13 @@ class HourlyForecastCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-//        configure()
+        setStyle()
     }
     
-//    func configure() {
-//        label.translatesAutoresizingMaskIntoConstraints = false
-//        label.adjustsFontForContentSizeCategory = true
-//        contentView.addSubview(label)
-//        label.font = UIFont.preferredFont(forTextStyle: .caption1)
-//        let inset = CGFloat(10)
-//        NSLayoutConstraint.activate([
-//            label.leadingAnchor.constraint(equalTo: contentView.leadingAnchor, constant: inset),
-//            label.trailingAnchor.constraint(equalTo: contentView.trailingAnchor, constant: -inset),
-//            label.topAnchor.constraint(equalTo: contentView.topAnchor, constant: inset),
-//            label.bottomAnchor.constraint(equalTo: contentView.bottomAnchor, constant: -inset)
-//            ])
-//    }
-//
+    private func setStyle() {
+        timeLabel.textColor = .customDarkBlue
+        temperatureLabel.textColor = .customDarkestBlue
+        temperatureLabel.font = .systemFont(ofSize: 26, weight: .semibold)
+    }
+    
 }

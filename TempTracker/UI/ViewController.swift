@@ -20,26 +20,41 @@ final class ViewController: UIViewController {
     
     @IBOutlet var weatherSymbol: UIImageView!
     
-//    static let semaphore = DispatchSemaphore(value: 0)
+    let semaphore = DispatchSemaphore(value: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getWeatherData()
+        _ = semaphore.wait(timeout: DispatchTime.distantFuture)
+        setLabels()
     }
     
     private func getWeatherData() {
-//        WeatherRepository.shared.getWeatherData(latitude: 35.9940, longitude: -78.8986, excluding: [.daily]) { (result) in
-//            switch result {
-//            case .success(let response):
-//                ViewModel.current = response.current
-//                ViewModel.minutely = response.minutely
-//                ViewModel.hourly = response.hourly
-//                ViewModel.daily = response.daily
-//                ViewController.semaphore.signal()
-//            case .failure(let error):
-//                print("Failed to retrieve weather data: \(error)")
-//            }
-//        }
+        WeatherRepository.shared.getWeatherData(latitude: 35.9940, longitude: -78.8986, excluding: [.daily]) { (result) in
+            switch result {
+            case .success(let response):
+                ViewModel.current = response.current
+                ViewModel.minutely = response.minutely
+                ViewModel.hourly = response.hourly
+                ViewModel.daily = response.daily
+                self.semaphore.signal()
+            case .failure(let error):
+                print("Failed to retrieve weather data: \(error)")
+            }
+        }
+    }
+    
+    private func setLabels() {
+        guard let current = ViewModel.current else {
+            print("Failed to retrieve current from view model")
+            return
+        }
+        let date = NSDate(timeIntervalSince1970: TimeInterval(current.dt)).stringFormat(dateFormat: "h:mm a")
+        timeLabel.text = date
+        let description = current.weather?[0].description.capitalizingFirstLetter()
+        descriptionLabel.text = description
+        let temperature = Int(current.temp)
+        temperatureLabel.text = "\(temperature)°"
     }
     
     func createGradientLayer() {

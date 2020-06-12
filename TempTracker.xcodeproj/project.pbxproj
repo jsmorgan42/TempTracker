@@ -18,12 +18,13 @@
 		A908D2852491DFF900A466ED /* RequestBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908D2842491DFF900A466ED /* RequestBuilder.swift */; };
 		A908D2872491E59300A466ED /* HTTPClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908D2862491E59300A466ED /* HTTPClient.swift */; };
 		A908D28B24931F7B00A466ED /* ViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908D28A24931F7B00A466ED /* ViewModel.swift */; };
-		A908D28D249327B500A466ED /* NSDate+DateFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908D28C249327B500A466ED /* NSDate+DateFormat.swift */; };
+		A908D28D249327B500A466ED /* NSDate+StringFormat.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908D28C249327B500A466ED /* NSDate+StringFormat.swift */; };
+		A908D28F24932CE200A466ED /* String+CapitalizeFirstLetter.swift in Sources */ = {isa = PBXBuildFile; fileRef = A908D28E24932CE200A466ED /* String+CapitalizeFirstLetter.swift */; };
+		A908D29124932FE200A466ED /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A908D29024932FE200A466ED /* Assets.xcassets */; };
 		A94B614E248D9E9900CA085C /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94B614D248D9E9900CA085C /* AppDelegate.swift */; };
 		A94B6150248D9E9900CA085C /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94B614F248D9E9900CA085C /* SceneDelegate.swift */; };
 		A94B6152248D9E9900CA085C /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A94B6151248D9E9900CA085C /* ViewController.swift */; };
 		A94B6155248D9E9900CA085C /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94B6153248D9E9900CA085C /* Main.storyboard */; };
-		A94B6157248D9E9C00CA085C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A94B6156248D9E9C00CA085C /* Assets.xcassets */; };
 		A94B615A248D9E9C00CA085C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A94B6158248D9E9C00CA085C /* LaunchScreen.storyboard */; };
 		A95AE595248F1D6500BA5566 /* HourlyForecastCollectionViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A95AE594248F1D6500BA5566 /* HourlyForecastCollectionViewController.swift */; };
 		A9F1B933248F1F1500C19516 /* HourlyForecastCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = A9F1B932248F1F1500C19516 /* HourlyForecastCell.xib */; };
@@ -48,13 +49,14 @@
 		A908D2842491DFF900A466ED /* RequestBuilder.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RequestBuilder.swift; sourceTree = "<group>"; };
 		A908D2862491E59300A466ED /* HTTPClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HTTPClient.swift; sourceTree = "<group>"; };
 		A908D28A24931F7B00A466ED /* ViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewModel.swift; sourceTree = "<group>"; };
-		A908D28C249327B500A466ED /* NSDate+DateFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDate+DateFormat.swift"; sourceTree = "<group>"; };
+		A908D28C249327B500A466ED /* NSDate+StringFormat.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "NSDate+StringFormat.swift"; sourceTree = "<group>"; };
+		A908D28E24932CE200A466ED /* String+CapitalizeFirstLetter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+CapitalizeFirstLetter.swift"; sourceTree = "<group>"; };
+		A908D29024932FE200A466ED /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A94B614A248D9E9900CA085C /* TempTracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = TempTracker.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A94B614D248D9E9900CA085C /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A94B614F248D9E9900CA085C /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		A94B6151248D9E9900CA085C /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		A94B6154248D9E9900CA085C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
-		A94B6156248D9E9C00CA085C /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A94B6159248D9E9C00CA085C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		A94B615B248D9E9C00CA085C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A95AE594248F1D6500BA5566 /* HourlyForecastCollectionViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HourlyForecastCollectionViewController.swift; sourceTree = "<group>"; };
@@ -186,8 +188,8 @@
 		A95AE599248F1DAC00BA5566 /* Supporting Files */ = {
 			isa = PBXGroup;
 			children = (
+				A908D29024932FE200A466ED /* Assets.xcassets */,
 				A94B6158248D9E9C00CA085C /* LaunchScreen.storyboard */,
-				A94B6156248D9E9C00CA085C /* Assets.xcassets */,
 			);
 			path = "Supporting Files";
 			sourceTree = "<group>";
@@ -213,7 +215,8 @@
 			children = (
 				A9F1B93E2490639C00C19516 /* UIColor+Helpers.swift */,
 				A9F1B9462490766000C19516 /* CGFloat+Rounded.swift */,
-				A908D28C249327B500A466ED /* NSDate+DateFormat.swift */,
+				A908D28C249327B500A466ED /* NSDate+StringFormat.swift */,
+				A908D28E24932CE200A466ED /* String+CapitalizeFirstLetter.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -277,10 +280,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				A94B615A248D9E9C00CA085C /* LaunchScreen.storyboard in Resources */,
-				A94B6157248D9E9C00CA085C /* Assets.xcassets in Resources */,
 				A9F1B933248F1F1500C19516 /* HourlyForecastCell.xib in Resources */,
 				A9F1B9452490652A00C19516 /* DailyForecastCell.xib in Resources */,
 				A94B6155248D9E9900CA085C /* Main.storyboard in Resources */,
+				A908D29124932FE200A466ED /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,11 +305,12 @@
 				A9F1B93F2490639C00C19516 /* UIColor+Helpers.swift in Sources */,
 				A908D27A2491BAD800A466ED /* Hourly.swift in Sources */,
 				A94B614E248D9E9900CA085C /* AppDelegate.swift in Sources */,
+				A908D28F24932CE200A466ED /* String+CapitalizeFirstLetter.swift in Sources */,
 				A908D2782491B90000A466ED /* APIResponse.swift in Sources */,
 				A9F1B935248F219400C19516 /* HourlyForecastCell.swift in Sources */,
 				A908D28B24931F7B00A466ED /* ViewModel.swift in Sources */,
 				A94B6150248D9E9900CA085C /* SceneDelegate.swift in Sources */,
-				A908D28D249327B500A466ED /* NSDate+DateFormat.swift in Sources */,
+				A908D28D249327B500A466ED /* NSDate+StringFormat.swift in Sources */,
 				A908D27C2491BC6100A466ED /* Daily.swift in Sources */,
 				A9F1B9472490766000C19516 /* CGFloat+Rounded.swift in Sources */,
 				A908D2802491D33800A466ED /* Request.swift in Sources */,

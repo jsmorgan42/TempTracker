@@ -13,4 +13,9 @@ extension UIColor {
     
     static let offWhite = UIColor(named: "OffWhite")!
     
+    static let customDarkestBlue = UIColor(named: "DarkestBlue")!
+    static let customDarkBlue = UIColor(named: "DarkBlue")!
+    static let customBlue = UIColor(named: "Blue")!
+    static let customLightBlue = UIColor(named: "LightBlue")!
+    
 }

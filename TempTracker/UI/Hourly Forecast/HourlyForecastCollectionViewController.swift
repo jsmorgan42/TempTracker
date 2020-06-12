@@ -19,7 +19,7 @@ final class HourlyForecastCollectionViewController: UICollectionViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        WeatherRepository.shared.getWeatherData(latitude: ViewModel.location.latitude, longitude: ViewModel.location.longitude, excluding: [.daily]) { (result) in
+        WeatherRepository.shared.getWeatherData(latitude: ViewModel.location.latitude, longitude: ViewModel.location.longitude, excluding: [.daily, .minutely]) { (result) in
             switch result {
             case .success(let response):
                 ViewModel.current = response.current
@@ -51,11 +51,14 @@ final class HourlyForecastCollectionViewController: UICollectionViewController {
         dataSource = UICollectionViewDiffableDataSource<Int, Int>(collectionView: collectionView, cellProvider: { (collectionView: UICollectionView, indexPath: IndexPath, indentifier: Int) -> UICollectionViewCell? in
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HourlyForecastCell.identifier, for: indexPath)
                 as? HourlyForecastCell else { fatalError("Failed to create new hourly forecast cell") }
+            
             guard let hourly = ViewModel.hourly?[indexPath.row + 1] else { return cell }
             let temp = Int(hourly.temp.rounded())
-            let date = NSDate(timeIntervalSince1970: TimeInterval(hourly.dt)).formatDate()
+            let date = NSDate(timeIntervalSince1970: TimeInterval(hourly.dt)).stringFormat()
+            
             cell.temperatureLabel.text = "\(temp)°"
             cell.timeLabel.text = "\(date)"
+            
             return cell
         })
         
@@ -65,7 +68,7 @@ final class HourlyForecastCollectionViewController: UICollectionViewController {
     private func updateSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Int, Int>()
         snapshot.appendSections([0])
-        snapshot.appendItems(Array(0..<14))
+        snapshot.appendItems(Array(0..<(itemsPerPage*4)))
         dataSource.apply(snapshot, animatingDifferences: false)
     }
     

@@ -10,7 +10,7 @@ import Foundation
 
 extension NSDate {
     
-    func formatDate(dateFormat: String = "ha") -> String {
+    func stringFormat(dateFormat: String = "ha") -> String {
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = dateFormat
         dateFormatter.timeZone = .current
