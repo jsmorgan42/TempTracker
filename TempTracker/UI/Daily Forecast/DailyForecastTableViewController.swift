@@ -28,7 +28,7 @@ final class DailyForecastTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupHierachy()
-//        getWeatherData()
+        getWeatherData()
     }
     
     private func setupHierachy() {
