@@ -9,7 +9,7 @@
 import UIKit
 import QuartzCore
 
-final class ViewController: UIViewController {
+final class MainViewController: UIViewController {
 
     @IBOutlet var changeLocationButton: UIButton!
     
@@ -26,17 +26,19 @@ final class ViewController: UIViewController {
         super.viewDidLoad()
         getWeatherData()
         _ = semaphore.wait(timeout: DispatchTime.distantFuture)
+        weatherSymbol.image = WeatherViewModel.description?.image
         setLabels()
     }
     
     private func getWeatherData() {
-        WeatherRepository.shared.getWeatherData(latitude: ViewModel.location.latitude, longitude: ViewModel.location.longitude, excluding: [.daily, .minutely]) { (result) in
+        WeatherRepository.shared.getWeatherData(latitude: WeatherViewModel.location.latitude, longitude: WeatherViewModel.location.longitude, excluding: [.daily, .minutely]) { (result) in
             switch result {
             case .success(let response):
-                ViewModel.current = response.current
-                ViewModel.minutely = response.minutely
-                ViewModel.hourly = response.hourly
-                ViewModel.daily = response.daily
+                WeatherViewModel.current = response.current
+                WeatherViewModel.minutely = response.minutely
+                WeatherViewModel.hourly = response.hourly
+                WeatherViewModel.daily = response.daily
+                WeatherViewModel.description = Description(rawValue: WeatherViewModel.current?.weather?[0].main ?? "")
                 self.semaphore.signal()
             case .failure(let error):
                 print("Failed to retrieve weather data: \(error)")
@@ -45,7 +47,7 @@ final class ViewController: UIViewController {
     }
     
     private func setLabels() {
-        guard let current = ViewModel.current else {
+        guard let current = WeatherViewModel.current else {
             print("Failed to retrieve current from view model")
             return
         }

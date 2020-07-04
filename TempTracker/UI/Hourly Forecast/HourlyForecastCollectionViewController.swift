@@ -14,26 +14,27 @@ final class HourlyForecastCollectionViewController: UICollectionViewController {
     private var dataSource: UICollectionViewDiffableDataSource<Int, Int>! = nil
     
     private let itemsPerPage = 7
+    private let numberOfPages = 4
     
     let semaphore = DispatchSemaphore(value: 0)
     
     override func viewDidLoad() {
         super.viewDidLoad()
         getWeatherData()
-        _ = semaphore.wait(timeout: DispatchTime.distantFuture)
         configureHierarchy()
-        configureDataSource()
     }
     
     private func getWeatherData() {
-        WeatherRepository.shared.getWeatherData(latitude: ViewModel.location.latitude, longitude: ViewModel.location.longitude, excluding: [.daily, .minutely]) { (result) in
+        WeatherRepository.shared.getWeatherData(latitude: WeatherViewModel.location.latitude, longitude: WeatherViewModel.location.longitude, excluding: []) { (result) in
             switch result {
             case .success(let response):
-                ViewModel.current = response.current
-                ViewModel.minutely = response.minutely
-                ViewModel.hourly = response.hourly
-                ViewModel.daily = response.daily
-                self.semaphore.signal()
+                WeatherViewModel.current = response.current
+                WeatherViewModel.minutely = response.minutely
+                WeatherViewModel.hourly = response.hourly
+                WeatherViewModel.daily = response.daily
+                DispatchQueue.main.async {
+                    self.configureDataSource()
+                }
             case .failure(let error):
                 print("Failed to retrieve weather data: \(error)")
             }
@@ -56,7 +57,7 @@ final class HourlyForecastCollectionViewController: UICollectionViewController {
             guard let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HourlyForecastCell.identifier, for: indexPath)
                 as? HourlyForecastCell else { fatalError("Failed to create new hourly forecast cell") }
             
-            guard let hourly = ViewModel.hourly?[indexPath.row + 1] else { return cell }
+            guard let hourly = WeatherViewModel.hourly?[indexPath.row + 1] else { return cell }
             let temp = Int(hourly.temp.rounded())
             let date = NSDate(timeIntervalSince1970: TimeInterval(hourly.dt)).stringFormat()
             
@@ -72,7 +73,7 @@ final class HourlyForecastCollectionViewController: UICollectionViewController {
     private func updateSnapshot() {
         var snapshot = NSDiffableDataSourceSnapshot<Int, Int>()
         snapshot.appendSections([0])
-        snapshot.appendItems(Array(0..<(itemsPerPage*4)))
+        snapshot.appendItems(Array(0..<(itemsPerPage * numberOfPages)))
         dataSource.apply(snapshot, animatingDifferences: false)
     }
     

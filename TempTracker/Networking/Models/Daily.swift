@@ -21,7 +21,7 @@ struct Daily: Codable {
     let clouds: Int?
     let windSpeed: Double
     let winDeg: Int
-    let weather: Weather?
+    let weather: [Weather]?
     
     enum CodingKeys: String, CodingKey {
         case dt, sunrise, sunset, temp, pressure, humidity, uvi, clouds, weather
